@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="MKwebviewPlugin" version="0.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>MKwebviewPlugin</name>
+    <js-module name="MKwebviewPlugin" src="www/MKwebviewPlugin.js">
+        <clobbers target="cordova.plugins.MKwebviewPlugin" />
+    </js-module>
+    <platform name="android">
+        <source-file src="src/android/MKwebviewPlugin.java" target-dir="src/hand/activity"/>
+
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="MKwebviewPlugin">
+                <param name="android-package" value="hand.activity.MKwebviewPlugin"/>
+            </feature>
+        </config-file>
+
+        <source-file src="src/android/LoadWebviewActivity.java" target-dir="src/hand/activity"/>
+        <source-file src="src/android/activity_webview.xml" target-dir="res/layout"/>
+
+        <config-file target="AndroidManifest.xml" parent="/manifest/application">
+            <activity android:name="hand.activity.LoadWebviewActivity"/>
+        </config-file>
+        <config-file target="AndroidManifest.xml" parent="/*">
+       
+          <uses-permission android:name="android.permission.INTERNET" />
+        
+        </config-file>
+    </platform>
+</plugin>
